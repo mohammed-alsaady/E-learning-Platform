@@ -1,0 +1,4 @@
+D:\ASP Project\Platform\Data Access layer\bin\Debug\Data Access layer.dll
+D:\ASP Project\Platform\Data Access layer\bin\Debug\Data Access layer.pdb
+D:\ASP Project\Platform\Data Access layer\obj\Debug\Data Access layer.dll
+D:\ASP Project\Platform\Data Access layer\obj\Debug\Data Access layer.pdb

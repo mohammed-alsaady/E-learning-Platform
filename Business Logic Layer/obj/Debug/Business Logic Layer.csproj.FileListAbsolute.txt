@@ -1,0 +1,7 @@
+D:\ASP Project\Platform\Business Logic Layer\bin\Debug\Business Logic Layer.dll
+D:\ASP Project\Platform\Business Logic Layer\bin\Debug\Business Logic Layer.pdb
+D:\ASP Project\Platform\Business Logic Layer\obj\Debug\Business Logic Layer.csprojResolveAssemblyReference.cache
+D:\ASP Project\Platform\Business Logic Layer\obj\Debug\Business Logic Layer.dll
+D:\ASP Project\Platform\Business Logic Layer\obj\Debug\Business Logic Layer.pdb
+D:\ASP Project\Platform\Business Logic Layer\bin\Debug\Data Access layer.dll
+D:\ASP Project\Platform\Business Logic Layer\bin\Debug\Data Access layer.pdb

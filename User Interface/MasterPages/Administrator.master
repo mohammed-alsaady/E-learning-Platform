@@ -1,0 +1,156 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Administrator.master.cs" Inherits="MasterPages_Administrator" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="../layout/styles/layout.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="top">
+    <form id="form1" runat="server">
+<div class="wrapper row0">
+  <div id="topbar" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <div class="fl_left">
+      
+    </div>
+    <div class="fl_right">
+        <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                           <ul class="nospace inline pushright">
+                                <li><i class="fa fa-user"></i><a id="registerLink" runat="server" href="~/Pages/Register.aspx">Register</a></li>
+                                <li><i class="fa fa-sign-in"></i><a id="loginLink" runat="server" href="~/Pages/Login.aspx">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+             <LoggedInTemplate>
+                            <p>
+                                Hello, <a id="A1" runat="server" class="username" href="~/Users/ShowProfile.aspx" >
+                                    <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
+                                </a>!
+                                <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/Home.aspx" />
+                            </p>
+                        </LoggedInTemplate>
+            </asp:LoginView>
+    </div>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <div id="logo" class="fl_left">
+      <h1><a href="index.html"> IIPS and ICCI Platform</a></h1>
+      <p><em>Informatics Institute For Postgraduate Studies And Iraqi Commission for Computer And Informatics</em></p> 
+    </div>
+    <div id="search" class="fl_right">
+   <div class="clear">
+        <div class="searchblock">
+        <fieldset>
+          <legend>Search:</legend>
+            <asp:TextBox ID="txt_Search" runat="server" TextMode="Search" placeholder="Search Here&hellip;"></asp:TextBox>
+            <asp:LinkButton ID="btn_Search" runat="server"><span class="fa fa-search"><em>Search</em></span></asp:LinkButton>
+        </fieldset>
+   </div>
+       </div>
+    </div>
+    <!-- ################################################################################################ -->
+  </header>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+  <nav id="mainav" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <ul class="clear">
+        <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Home.aspx">Home</asp:HyperLink></li>
+      <li class="active"><a class="drop" href="#">Colleges</a>
+        <ul>
+         
+               <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+            <ItemTemplate>
+              <li>  <asp:HyperLink ID="hl_College" runat="server" NavigateUrl='<%# "~/Pages/Colleges.aspx?Id= "+Eval("College_Id") %>'>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("College_Name") %>'></asp:Label>
+                </asp:HyperLink>  </li>
+            </ItemTemplate>
+
+
+        </asp:Repeater>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [College_Name], [College_Id] FROM [Colleges]"></asp:SqlDataSource>
+  
+        </ul>
+      </li>
+        <li> <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Pages/Article.aspx">Article</asp:HyperLink></li>
+      <li> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/ShowCourses.aspx">Courses</asp:HyperLink></li>
+        <li> <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/AboutUs.aspx">About</asp:HyperLink></li>
+        <li> <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/Help.aspx">Help</asp:HyperLink></li>
+        <li> <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Pages/ContactUs.aspx">Contact Us</asp:HyperLink></li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </nav>
+</div>
+<div class="wrapper row3">
+  <main class="hoc container clear">
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="sidebar one_quarter first">
+      <!-- ################################################################################################ -->
+
+      <h6><i class="fa fa-cogs" aria-hidden="true"></i>  Management</h6>
+      <nav class="sdb_holder">
+        <ul>
+            <li><a href="CollegeSetting.aspx"><i class="fa fa-university" aria-hidden="true"></i> Colleges Setting </a> </li>
+          <li><a href="UsersSetting.aspx"><i class="fa fa-users" aria-hidden="true"></i> Users Setting</a></li>
+          <li><a href="CoursesSetting.aspx"><i class="fa fa-leanpub" aria-hidden="true"></i> Courses</a></li>
+          <li><a href="ArticlesSetting.aspx"><i class="fa fa-file-text-o" aria-hidden="true"></i> Articles</a></li>
+             <li><a href="ContacMessage.aspx"><i class="fa fa-file-text-o" aria-hidden="true"></i> Contact Messages</a></li>
+        </ul>
+      </nav>
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="content three_quarter">
+      <!-- ################################################################################################ -->
+      
+      <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+      <!-- ################################################################################################ -->
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4 bgded overlay" style="background-image:url('../images/demo/backgrounds/03.png');">
+  
+</div>
+<div class="wrapper row6">
+  <div id="copyright" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2016 - All Rights Reserved - <a href="#">IIPS and ICCI Platform</a></p>
+    <p class="fl_right">Designed By <a target="_blank" href="#" title="">Enas Khaled</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+
+        
+    </form>
+</body>
+</html>
